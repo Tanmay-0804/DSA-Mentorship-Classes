@@ -1,0 +1,26 @@
+Approach 1: O(nlog(n))
+
+class Solution:
+    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        arr=sorted(nums)
+        res=[]
+        for i in range(len(arr)):
+            if(arr[i]==target):
+                res.append(i)
+
+        return res
+        
+        
+Approach 2: O(n)
+class Solution:
+    def targetIndices(self, arr: List[int], target: int) -> List[int]:
+        count=0
+        idx=0
+        for i in arr:
+            if(i<target):
+                idx+=1
+            elif(i==target):
+                count+=1
+
+        return range(idx,idx+count)
+        
